@@ -1,1 +1,118 @@
 #include "Game.h"
+
+Game::Game(int words) {
+	if (words < minWords || words > maxWords) throw std::string("Wrong number of words!");
+
+	score = 0.0;
+	mode = words;
+}
+
+void Game::howtoplay() {
+	std::cout << "==========HOW TO PLAY==========\n";
+	std::cout << "\033[3;100;30mYou will be presented with a series of color words.\n";
+	std::cout << "These words will appear in different colors.\n";
+	std::cout << "Your job is to indicate the color in which the word is written as quickly and accurately as possible.\n";
+	std::cout << "You must enter first letter of the color (+ Enter).\033[0m\n";
+	std::cout << "For example: " << "\033[0;32m" << "yellow" << Game::codes[num_of_colors] << "\n";
+	std::cout << "Answer: g (because the word " << "\033[0;32m" << "yellow" << "\033[0m" << " is green)\n";
+	std::cout << "List of possible colors and their names: \n";
+	for (int i = 0; i < num_of_colors; i++) {
+		std::cout << codes[i] << colors_name[i] << codes[num_of_colors] << " - Answer is " << colors_name[i][0] << "\n";
+	}
+	std::cout << "\033[3;100;30mYour result is average time per word.\033[0m\n";
+	std::cout << "==========HOW TO PLAY==========\n";
+}
+
+double Game::getScore() {
+	return score;
+}
+
+void Game::sleepT(double sec) {
+	clock_t begin = clock();
+	clock_t now = begin;
+
+	while (true) {
+		now = clock();
+		clock_t duration = (now - begin);
+		if (duration / CLOCKS_PER_SEC >= sec) break;
+	}
+}
+
+void Game::startPrep() {
+	std::cout << "The game is ready to start === Number of words: " << mode << "\n";
+	ConsoleFeatures::pauseANDclear();
+
+	for (int i = 3; i >= 0; i--) {
+		ConsoleFeatures::clearConsole();
+		if (!i) std::cout << "GO";
+		else std::cout << i;
+		sleepT(1.0);
+	}
+	ConsoleFeatures::clearConsole();
+}
+
+bool Game::tryToGuess(const char correct) {
+	for (int i = 1; i <= 3; i++) {
+		char attempt = ConsoleFeatures::cinChar("Your Answer: ");
+		if (attempt == correct) return 1;
+	}
+
+	return 0;
+}
+
+bool Game::start() {
+	startPrep();
+
+	clock_t begin, end;
+
+	srand(time(NULL));
+	for (int i = 1; i <= mode; i++) {
+		int word = rand() % num_of_colors;
+		int color = rand() % num_of_colors;
+		std::string final_word = codes[color] + colors_name[word] + codes[num_of_colors];
+		std::cout << final_word << "\n";
+
+		begin = clock();
+
+		bool right = tryToGuess(colors_name[color][0]);
+		ConsoleFeatures::clearConsole();
+		
+		end = clock();
+		score += (end - begin) / CLOCKS_PER_SEC;
+
+		if (!right) {
+			std::cout << "You're so bad. Relax and then try again!\n";
+			ConsoleFeatures::pauseANDclear();
+			score = 0.0;
+			break;
+		}
+
+		sleepT(1);
+	}
+
+	if (score == 0.0) return 0;
+	score /= double(mode);
+
+	std::cout << "Your Average time per word = " << std::fixed << std::setprecision(2) << score << " sec\n";
+	ConsoleFeatures::pauseANDclear();
+}
+
+const std::string Game::colors_name[] = {
+	"green",
+	"blue",
+	"red",
+	"purple",
+	"yellow",
+	"white"
+};
+
+const std::string Game::codes[] = {
+	"\033[0;32m",
+	"\033[0;36m",
+	"\033[0;31m",
+	"\033[0;35m",
+	"\033[0;33m",
+	"\033[0;37m",
+	// go to normal color
+	"\033[0m"
+};
