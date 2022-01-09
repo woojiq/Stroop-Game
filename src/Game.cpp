@@ -7,7 +7,7 @@ Game::Game(int words) {
 	mode = words;
 }
 
-void Game::howtoplay() {
+const void Game::howtoplay() {
 	std::cout << "==========HOW TO PLAY==========\n";
 	std::cout << "\033[3;100;30mYou will be presented with a series of color words.\n";
 	std::cout << "These words will appear in different colors.\n";
@@ -23,11 +23,11 @@ void Game::howtoplay() {
 	std::cout << "==========HOW TO PLAY==========\n";
 }
 
-double Game::getScore() {
+const double Game::getScore() {
 	return score;
 }
 
-void Game::sleepT(double sec) {
+const void Game::sleepT(double sec) {
 	clock_t begin = clock();
 	clock_t now = begin;
 
@@ -38,7 +38,7 @@ void Game::sleepT(double sec) {
 	}
 }
 
-void Game::startPrep() {
+const void Game::startPrep() {
 	std::cout << "The game is ready to start === Number of words: " << mode << "\n";
 	ConsoleFeatures::pauseANDclear();
 
@@ -52,7 +52,7 @@ void Game::startPrep() {
 	ConsoleFeatures::clearConsole();
 }
 
-bool Game::tryToGuess(const char correct) {
+const bool Game::tryToGuess(const char correct) {
 	// user has only 3 attempts to guess the color (otherwise he is silly)
 	for (int i = 1; i <= 3; i++) {
 		char attempt = ConsoleFeatures::cinChar("Your Answer: ");
@@ -84,7 +84,7 @@ bool Game::start() {
 		
 		end = clock();
 		// time that user spent to guess the color
-		score += (end - begin) / CLOCKS_PER_SEC;
+		score += double(end - begin) / double(CLOCKS_PER_SEC);
 
 		if (!right) {
 			std::cout << "You're so bad. Relax and then try again!\n";
@@ -94,15 +94,17 @@ bool Game::start() {
 			break;
 		}
 
-		sleepT(1);
+		if (i < mode) sleepT(1);
 	}
 
 	// calculate score (average time per word)
 	if (score == 0.0) return 0;
 	score /= double(mode);
 
-	std::cout << "Your Average time per word = " << std::fixed << std::setprecision(2) << score << " sec\n";
+	std::cout << "Your Average time per word = " << std::fixed << std::setprecision(4) << score << " sec\n";
 	ConsoleFeatures::pauseANDclear();
+
+	return 1;
 }
 
 const std::string Game::colors_name[] = {

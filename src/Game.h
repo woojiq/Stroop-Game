@@ -23,7 +23,7 @@ public:
 	Game(int);
 
 	// prints rules of this game and how to play
-	static void howtoplay();
+	static const void howtoplay();
 
 	/// <summary>
 	/// Start the game
@@ -35,24 +35,24 @@ public:
 	/// pause console for time = parametr
 	/// </summary>
 	/// <param name="">time to sleep</param>
-	static void sleepT(double);
+	static const void sleepT(double);
 
 	// Score getter
-	double getScore();
+	const double getScore();
 
 	static const int minWords = 5;
 	static const int maxWords = 50;
 
 private:
 	// preparation before the game
-	void startPrep();
+	const void startPrep();
 
 	/// <summary>
 	/// check if user's answer = correct. User has 3 attempts else he loses; and score == 0
 	/// </summary>
 	/// <param name="correct">correct answer</param>
 	/// <returns>whether the user gave the correct answer</returns>
-	bool tryToGuess(const char correct);
+	const bool tryToGuess(const char correct);
 
 	// game duration in sec (if mode = 0 -> smth went wrong; don't take it)
 	double score;

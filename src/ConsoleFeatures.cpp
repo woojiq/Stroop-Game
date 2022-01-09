@@ -1,21 +1,21 @@
 #include "ConsoleFeatures.h"
 
-void ConsoleFeatures::cinReset() {
+const void ConsoleFeatures::cinReset() {
 	std::cin.clear();
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-void ConsoleFeatures::clearConsole() {
+const void ConsoleFeatures::clearConsole() {
 	std::cout << "\033c";
 }
 
-void ConsoleFeatures::pauseANDclear() {
+const void ConsoleFeatures::pauseANDclear() {
 	std::cout << "\nPress to continue...";
 	std::cin.get();
 	clearConsole();
 }
 
-int ConsoleFeatures::cinInt(std::string message) {
+const int ConsoleFeatures::cinInt(std::string message) {
 	int val = -1;
 	while (val < 0) {
 		std::cout << message;
@@ -34,7 +34,7 @@ int ConsoleFeatures::cinInt(std::string message) {
 	return val;
 }
 
-char ConsoleFeatures::cinChar(std::string message) {
+const char ConsoleFeatures::cinChar(std::string message) {
 	char val = 0;
 	while (!val) {
 		std::cout << message;

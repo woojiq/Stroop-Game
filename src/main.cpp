@@ -45,6 +45,9 @@ int main() {
 			Game game(mode);
 			game.start();
 
+			// save time to results
+			if (game.getScore() > 0.0) Results::saveTime(game.getScore());
+
 			break;
 		}
 		case 2: {
