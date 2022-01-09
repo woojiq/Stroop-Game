@@ -19,6 +19,7 @@ void menu() {
 int main() {
 	int choice = 0;
 	do {
+		// show menu and read user's choice
 		menu();
 		choice = ConsoleFeatures::cinInt("Enter: ");
 		cout << "\n";
@@ -27,6 +28,7 @@ int main() {
 
 		switch (choice) {
 		case 1: {
+			// read valid number of words to play
 			int mode = 0;
 			while (mode < Game::minWords || mode > Game::maxWords) {
 				mode = ConsoleFeatures::cinInt(
@@ -39,18 +41,20 @@ int main() {
 			}
 			ConsoleFeatures::clearConsole();
 
+			// start the game
 			Game game(mode);
-
 			game.start();
 
 			break;
 		}
 		case 2: {
+			// show how to play this game
 			Game::howtoplay();
 			ConsoleFeatures::pauseANDclear();
 			break;
 		}
 		default: {
+			// exit
 			cout << "\033[1mSee you next time!\033[0m\n\n";
 			break;
 		}

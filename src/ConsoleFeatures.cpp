@@ -21,8 +21,10 @@ int ConsoleFeatures::cinInt(std::string message) {
 		std::cout << message;
 		std::cin >> val;
 
+		// want to get '\n'
 		char check = std::cin.get();
 
+		// input wasn't valid
 		if (!std::cin.good() || check != '\n') {
 			val = -1;
 			cinReset();
@@ -38,6 +40,7 @@ char ConsoleFeatures::cinChar(std::string message) {
 		std::cout << message;
 		std::cin >> val;
 
+		// want to get '\n'
 		char check = std::cin.get();
 
 		// if check != '\n', cinReset will skip all symbol until '\n' and '\n' itself

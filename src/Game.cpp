@@ -42,6 +42,7 @@ void Game::startPrep() {
 	std::cout << "The game is ready to start === Number of words: " << mode << "\n";
 	ConsoleFeatures::pauseANDclear();
 
+	// countdown: 3; 2; 1; GO
 	for (int i = 3; i >= 0; i--) {
 		ConsoleFeatures::clearConsole();
 		if (!i) std::cout << "GO";
@@ -52,6 +53,7 @@ void Game::startPrep() {
 }
 
 bool Game::tryToGuess(const char correct) {
+	// user has only 3 attempts to guess the color (otherwise he is silly)
 	for (int i = 1; i <= 3; i++) {
 		char attempt = ConsoleFeatures::cinChar("Your Answer: ");
 		if (attempt == correct) return 1;
@@ -66,7 +68,9 @@ bool Game::start() {
 	clock_t begin, end;
 
 	srand(time(NULL));
+
 	for (int i = 1; i <= mode; i++) {
+		// generate word with color
 		int word = rand() % num_of_colors;
 		int color = rand() % num_of_colors;
 		std::string final_word = codes[color] + colors_name[word] + codes[num_of_colors];
@@ -74,15 +78,18 @@ bool Game::start() {
 
 		begin = clock();
 
+		// check whether user is right
 		bool right = tryToGuess(colors_name[color][0]);
 		ConsoleFeatures::clearConsole();
 		
 		end = clock();
+		// time that user spent to guess the color
 		score += (end - begin) / CLOCKS_PER_SEC;
 
 		if (!right) {
 			std::cout << "You're so bad. Relax and then try again!\n";
 			ConsoleFeatures::pauseANDclear();
+			// score == 0.0 means that game result isn't valid
 			score = 0.0;
 			break;
 		}
@@ -90,6 +97,7 @@ bool Game::start() {
 		sleepT(1);
 	}
 
+	// calculate score (average time per word)
 	if (score == 0.0) return 0;
 	score /= double(mode);
 
