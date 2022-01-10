@@ -17,8 +17,8 @@ Results::Results(double t) {
 	localtime_s(&date, &now);
 	
 	day = date.tm_mday;
-	month = date.tm_mon;
-	year = date.tm_year;
+	month = date.tm_mon + 1;
+	year = date.tm_year + 1900;
 	hour = date.tm_hour;
 	min = date.tm_hour;
 }
