@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 #include "Game.h"
 #include "Results.h"
@@ -44,9 +45,6 @@ int main() {
 			// start the game
 			Game game(mode);
 			game.start();
-
-			// save time to results
-			if (game.getScore() > 0.0) Results::saveTime(game.getScore());
 
 			break;
 		}

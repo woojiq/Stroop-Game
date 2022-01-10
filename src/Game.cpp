@@ -23,10 +23,6 @@ const void Game::howtoplay() {
 	std::cout << "==========HOW TO PLAY==========\n";
 }
 
-const double Game::getScore() {
-	return score;
-}
-
 const void Game::sleepT(double sec) {
 	clock_t begin = clock();
 	clock_t now = begin;
@@ -97,11 +93,27 @@ bool Game::start() {
 		if (i < mode) sleepT(1);
 	}
 
+	return finish();
+}
+
+const bool Game::finish() {
 	// calculate score (average time per word)
 	if (score == 0.0) return 0;
+
 	score /= double(mode);
+	// save time to results
+	Results::saveTime(score);
 
 	std::cout << "Your Average time per word = " << std::fixed << std::setprecision(4) << score << " sec\n";
+	int place = Results::rating(score);
+
+	if (place == 1) {
+		std::cout << "Congratulations. You beat your personal record\n";
+	}
+	else {
+		std::cout << "This is " << place << "/" << Results::numOfRecords() << " place among your all results\n";
+	}
+
 	ConsoleFeatures::pauseANDclear();
 
 	return 1;

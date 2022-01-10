@@ -10,6 +10,7 @@
 // rand
 #include <stdlib.h>
 #include "ConsoleFeatures.h"
+#include "Results.h"
 
 /// <summary>
 /// Creates an object for playing the stroop (or words). The player must name the color of the word, not the word itself
@@ -28,7 +29,7 @@ public:
 	/// <summary>
 	/// Start the game
 	/// </summary>
-	/// <returns>whether the game was finished</returns>
+	/// <returns>whether the game was finished normally</returns>
 	bool start();
 
 	/// <summary>
@@ -37,15 +38,18 @@ public:
 	/// <param name="">time to sleep</param>
 	static const void sleepT(double);
 
-	// Score getter
-	const double getScore();
-
 	static const int minWords = 5;
 	static const int maxWords = 50;
 
 private:
 	// preparation before the game
 	const void startPrep();
+
+	/// <summary>
+	/// action after game like save results
+	/// </summary>
+	/// <returns>whether the game was finished normally</returns>
+	const bool finish();
 
 	/// <summary>
 	/// check if user's answer = correct. User has 3 attempts else he loses; and score == 0

@@ -27,3 +27,30 @@ const std::array<int, 5> Results::currentData() {
 
 	return { date.tm_mday, date.tm_mon+1, date.tm_year+1900, date.tm_hour, date.tm_min };
 }
+
+const int Results::rating(double time) {
+	int place = 1;
+	// go through all the records
+	std::ifstream in(filename);
+	std::string line;
+	while (getline(in, line)) {
+		double res;
+		std::istringstream read(line);
+		read >> res;
+
+		if (time > res) place++;
+	}
+	return place;
+	return 0;
+}
+
+const int Results::numOfRecords() {
+	int cnt = 0;
+
+	std::string line;
+	std::ifstream in(filename);
+	while (getline(in, line)) {
+		cnt++;
+	}
+	return cnt;
+}
