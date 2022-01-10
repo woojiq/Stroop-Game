@@ -12,7 +12,7 @@ using namespace std;
 void statistics_info() {
 	cout << "======Statistics menu======\n";
 	cout << "Press 0 - EXIT\n";
-	//cout << "Press 1 - Show my Person Record\n";
+	cout << "Press 1 - Show my Person Record\n";
 	cout << "\n";
 }
 
@@ -27,6 +27,10 @@ void statistics_menu() {
 		ConsoleFeatures::clearConsole();
 
 		switch (choice) {
+		case 1: {
+			Results::showBest();
+			break;
+		}
 		default: {
 			break;
 		}

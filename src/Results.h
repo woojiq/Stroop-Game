@@ -12,6 +12,8 @@
 #include <string>
 #include <iostream>
 
+#include "ConsoleFeatures.h"
+
 /// <summary>
 /// contain game results in one file
 /// </summary>
@@ -19,6 +21,8 @@ class Results {
 public:
 	// constructor with time; take current date
 	Results(double t);
+	// constructor that take data from formatted string
+	Results(std::string data);
 
 	// save game result to the file
 	const void save();
@@ -29,7 +33,16 @@ public:
 	// returns number of all records in file
 	static const int numOfRecords();
 
+	// grabs time from recorded line
+	static const double getTime(std::string line);
+
+	// output info about the best result
+	static const void showBest();
+
 private:
+	// output data to console with explanatory words
+	const void printToUser();
+
 	// time in sec
 	double timeSec;
 	// current day
