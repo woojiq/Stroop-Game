@@ -11,6 +11,8 @@ using namespace std;
 // choices for statistics_menu
 void statistics_info() {
 	cout << "======Statistics menu======\n";
+	cout << "Press 0 - EXIT\n";
+	//cout << "Press 1 - Show my Person Record\n";
 	cout << "\n";
 }
 
@@ -23,6 +25,12 @@ void statistics_menu() {
 		cout << "\n";
 
 		ConsoleFeatures::clearConsole();
+
+		switch (choice) {
+		default: {
+			break;
+		}
+		}
 
 	} while (choice >= 1 && choice <= 1);
 }

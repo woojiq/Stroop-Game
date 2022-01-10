@@ -102,7 +102,8 @@ const void Game::finish() {
 
 	score /= double(mode);
 	// save time to results
-	Results::saveTime(score);
+	Results res(score);
+	res.save();
 
 	std::cout << "Your Average time per word = " << std::fixed << std::setprecision(4) << score << " sec\n";
 

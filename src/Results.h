@@ -5,31 +5,44 @@
 #include <fstream>
 // setprecision
 #include <iomanip>
-// to know current data
-#include <ctime>
 // istringstream
 #include <sstream>
-#include <array>
+// time(), localtime()
+#include <ctime>
 #include <string>
+#include <iostream>
 
 /// <summary>
-/// save results from Class Game to file in format: GameResut|Day|Month|Year|Hours|Minutes
+/// contain game results in one file
 /// </summary>
 class Results {
 public:
-	// save time to the file
-	static const void saveTime(double time);
+	// constructor with time; take current date
+	Results(double t);
 
-	// return current date in format Day-Month-Year-Hours-Mins
-	static const std::array<int, 5> currentData();
+	// save game result to the file
+	const void save();
 
-	// return place in local rating list
-	static const int rating(double time);
+	// returns place among all records
+	static const int rating(double tim);
 
-	// return number of all records in file
+	// returns number of all records in file
 	static const int numOfRecords();
 
 private:
+	// time in sec
+	double timeSec;
+	// current day
+	int day;
+	// current month
+	int month;
+	// current year
+	int year;
+	// current hour
+	int hour;
+	// current min
+	int min;
+
 	// name of the file where the game results will be stored
 	static const char* filename;
 };
