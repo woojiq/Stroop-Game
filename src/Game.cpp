@@ -12,7 +12,7 @@ const void Game::howtoplay() {
 	std::cout << "\033[3;100;30mYou will be presented with a series of color words.\n";
 	std::cout << "These words will appear in different colors.\n";
 	std::cout << "Your job is to indicate the color in which the word is written as quickly and accurately as possible.\n";
-	std::cout << "You must enter first letter of the color (+ Enter).\033[0m\n";
+	std::cout << "You must enter first letter of the color (without Enter).\033[0m\n";
 	std::cout << "For example: " << "\033[0;32m" << "yellow" << Game::codes[num_of_colors] << "\n";
 	std::cout << "Answer: g (because the word " << "\033[0;32m" << "yellow" << "\033[0m" << " is green)\n";
 	std::cout << "List of possible colors and their names: \n";
@@ -51,14 +51,14 @@ const void Game::startPrep() {
 const bool Game::tryToGuess(const char correct) {
 	// user has only 3 attempts to guess the color (otherwise he is silly)
 	for (int i = 1; i <= 3; i++) {
-		char attempt = ConsoleFeatures::cinChar("Your Answer: ");
+		char attempt = ConsoleFeatures::getchChar("Your Answer: ");
 		if (attempt == correct) return 1;
 	}
 
 	return 0;
 }
 
-bool Game::start() {
+void Game::start() {
 	startPrep();
 
 	clock_t begin, end;
@@ -96,27 +96,30 @@ bool Game::start() {
 	return finish();
 }
 
-const bool Game::finish() {
+const void Game::finish() {
 	// calculate score (average time per word)
-	if (score == 0.0) return 0;
+	if (score == 0.0) return;
 
 	score /= double(mode);
 	// save time to results
 	Results::saveTime(score);
 
 	std::cout << "Your Average time per word = " << std::fixed << std::setprecision(4) << score << " sec\n";
+
 	int place = Results::rating(score);
+	int all = Results::numOfRecords();
 
 	if (place == 1) {
-		std::cout << "Congratulations. You beat your personal record\n";
+		std::cout << "Congratulations. You beat your personal record!\n";
+	}
+	else if (place == all) {
+		std::cout << "This is your worst result. But don't give up (Never give up).\n";
 	}
 	else {
-		std::cout << "This is " << place << "/" << Results::numOfRecords() << " place among your all results\n";
+		std::cout << "This is " << place << "/" << all << " place among your all results\n";
 	}
 
 	ConsoleFeatures::pauseANDclear();
-
-	return 1;
 }
 
 const std::string Game::colors_name[] = {

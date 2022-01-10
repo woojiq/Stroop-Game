@@ -29,8 +29,7 @@ public:
 	/// <summary>
 	/// Start the game
 	/// </summary>
-	/// <returns>whether the game was finished normally</returns>
-	bool start();
+	void start();
 
 	/// <summary>
 	/// pause console for time = parametr
@@ -46,10 +45,9 @@ private:
 	const void startPrep();
 
 	/// <summary>
-	/// action after game like save results
+	/// actions after game like save results
 	/// </summary>
-	/// <returns>whether the game was finished normally</returns>
-	const bool finish();
+	const void finish();
 
 	/// <summary>
 	/// check if user's answer = correct. User has 3 attempts else he loses; and score == 0

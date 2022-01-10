@@ -34,22 +34,12 @@ const int ConsoleFeatures::cinInt(std::string message) {
 	return val;
 }
 
-const char ConsoleFeatures::cinChar(std::string message) {
-	char val = 0;
-	while (!val) {
-		std::cout << message;
-		std::cin >> val;
+const char ConsoleFeatures::getchChar(std::string message) {
+	std::cout << message;
+	int val = _getch();
+	std::cout << char(val);
 
-		// want to get '\n'
-		char check = std::cin.get();
+	if (char(val) != '\n') std::cout << "\n";
 
-		// if check != '\n', cinReset will skip all symbol until '\n' and '\n' itself
-		if (!std::cin.good() || check != '\n') {
-			cinReset();
-			val = 0;
-			continue;
-		}
-	}
-
-	return val;
+	return char(val);
 }

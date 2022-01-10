@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+// _getch()
+#include <conio.h>
 
 /// <summary>
 /// some console custom functions to make code easier to read
@@ -26,11 +28,11 @@ public:
 	static const int cinInt(std::string message);
 
 	/// <summary>
-	/// read char until it's really one char (not two or more)
+	/// read one char using method _getch()
 	/// </summary>
 	/// <param name="message">message to output before reading</param>
 	/// <returns>one char</returns>
-	static const char cinChar(std::string message);
+	static const char getchChar(std::string message);
 };
 
 #endif
