@@ -41,13 +41,13 @@ const void Results::save() {
 	std::ofstream out(filename, std::ios_base::app);
 
 	// output game result
-	out << std::fixed << std::setprecision(4) << timeSec;
+	out << std::fixed << std::setprecision(Precision) << timeSec;
 	out << " | " << day << " | " << month << " | " << year << " | " << hour << " | " << min;
 	out << "\n";
 }
 
 const int Results::rating(double tim) {
-	// make double with precision - 4 digits 
+	// make double with Precision digits (10^4 = 10000)
 	tim = int(tim * 10000 + 0.5);
 	tim /= 10000.0;
 	
@@ -107,7 +107,7 @@ const void Results::showBest() {
 }
 
 const void Results::printToUser() {
-	std::cout << "Time: " << std::fixed << std::setprecision(4) << timeSec << "\n";
+	std::cout << "Time: " << std::fixed << std::setprecision(Precision) << timeSec << "\n";
 	std::cout << "Date: " << day << "-" << month << "-" << year << " " << hour << ":" << min << "\n";
 }
 

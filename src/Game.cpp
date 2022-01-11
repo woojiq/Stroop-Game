@@ -82,7 +82,7 @@ void Game::start() {
 		// time that user spent to guess the color
 		score += double(end - begin) / double(CLOCKS_PER_SEC);
 
-		if (!right) {
+		if (!right || double(end-begin)/double(CLOCKS_PER_SEC) > 100.0) {
 			std::cout << "You're so bad. Relax and then try again!\n";
 			ConsoleFeatures::pauseANDclear();
 			// score == 0.0 means that game result isn't valid
@@ -105,7 +105,7 @@ const void Game::finish() {
 	Results res(score);
 	res.save();
 
-	std::cout << "Your Average time per word = " << std::fixed << std::setprecision(4) << score << " sec\n";
+	std::cout << "Your Average time per word = " << std::fixed << std::setprecision(Results::Precision) << score << " sec\n";
 
 	int place = Results::rating(score);
 	int all = Results::numOfRecords();
