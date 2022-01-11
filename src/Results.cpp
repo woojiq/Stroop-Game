@@ -24,18 +24,17 @@ Results::Results(double t) {
 }
 
 Results::Results(std::string data) {
-	std::istringstream in(data);
-	in >> timeSec;
-	in.ignore(3, '|');
-	in >> day;
-	in.ignore(3, '|');
-	in >> month;
-	in.ignore(3, '|');
-	in >> year;
-	in.ignore(3, '|');
-	in >> hour;
-	in.ignore(3, '|');
-	in >> min;
+	// regular expression to find all numbers from file
+	std::regex record("^([0-9]+.[0-9]+)...([0-9]+)...([0-9]+)...([0-9]+)...([0-9]+)...([0-9]+)");
+	std::smatch find;
+	std::regex_search(data, find, record);
+
+	timeSec = stod(find.str(1));
+	day = stoi(find.str(2));
+	month = stoi(find.str(3));
+	year = stoi(find.str(4));
+	hour = stoi(find.str(5));
+	min = stoi(find.str(6));
 }
 
 const void Results::save() {
@@ -43,11 +42,7 @@ const void Results::save() {
 
 	// output game result
 	out << std::fixed << std::setprecision(4) << timeSec;
-	out << " | " << day;
-	out << " | " << month;
-	out << " | " << year;
-	out << " | " << hour;
-	out << " | " << min;
+	out << " | " << day << " | " << month << " | " << year << " | " << hour << " | " << min;
 	out << "\n";
 }
 
@@ -98,16 +93,16 @@ const void Results::showBest() {
 	}
 	if (!bestT) {
 		std::cout << "You haven't played yet!\n";
-		return;
+	}
+	else {
+		Results best(bestS);
+		best.printToUser();
 	}
 
-	Results best(bestS);
-	best.printToUser();
+	ConsoleFeatures::pauseANDclear();
 }
 
 const void Results::printToUser() {
 	std::cout << "Time: " << std::fixed << std::setprecision(4) << timeSec << "\n";
 	std::cout << "Date: " << day << "-" << month << "-" << year << " " << hour << ":" << min << "\n";
-
-	ConsoleFeatures::pauseANDclear();
 }

@@ -119,5 +119,3 @@ int main() {
 	main_menu();
 	return 0;
 }
-
-// TODO - Ansi codes don't work on windows (if start from debug or release exe)
