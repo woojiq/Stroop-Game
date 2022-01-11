@@ -20,7 +20,7 @@ Results::Results(double t) {
 	month = date.tm_mon + 1;
 	year = date.tm_year + 1900;
 	hour = date.tm_hour;
-	min = date.tm_hour;
+	min = date.tm_min;
 }
 
 Results::Results(std::string data) {
@@ -105,4 +105,27 @@ const void Results::showBest() {
 const void Results::printToUser() {
 	std::cout << "Time: " << std::fixed << std::setprecision(4) << timeSec << "\n";
 	std::cout << "Date: " << day << "-" << month << "-" << year << " " << hour << ":" << min << "\n";
+}
+
+const void Results::showLastN(int N) {
+	if (N < 0) throw ("Wrong number of records to output!");
+
+	int all = numOfRecords();
+	// from which record to start writing (1 line in the file - is the oldest game)
+	int start = (all - N + 1 > 0 ? all-N+1 : 1);
+	// number of current record
+	int curNo = 0;
+
+	std::ifstream in(filename);
+	std::string line;
+
+	while (getline(in, line)) {
+		Results cur(line);
+		if (++curNo >= start) {
+			cur.printToUser();
+			std::cout << "\n";
+		}
+	}
+
+	ConsoleFeatures::pauseANDclear();
 }

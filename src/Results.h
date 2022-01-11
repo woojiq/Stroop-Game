@@ -43,6 +43,9 @@ public:
 	// output info about the best result
 	static const void showBest();
 
+	// output info about last N games
+	static const void showLastN(int N);
+
 private:
 	// output data to console with explanatory words
 	const void printToUser();

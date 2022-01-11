@@ -14,6 +14,7 @@ void statistics_info() {
 	cout << "======Statistics menu======\n";
 	cout << "Press 0 - EXIT\n";
 	cout << "Press 1 - Show my Person Record\n";
+	cout << "Press 2 - Show my last N results\n";
 	cout << "\n";
 }
 
@@ -33,12 +34,21 @@ void statistics_menu() {
 			Results::showBest();
 			break;
 		}
+		case 2: {
+			int N = 0;
+			while (N <= 0) {
+				N = ConsoleFeatures::cinInt("Enter Number of results to show: ");
+			}
+			ConsoleFeatures::clearConsole();
+			Results::showLastN(N);
+			break;
+		}
 		default: {
 			break;
 		}
 		}
 
-	} while (choice >= 1 && choice <= 1);
+	} while (choice >= 1 && choice <= 2);
 }
 
 // choices for main_menu
