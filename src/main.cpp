@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <Windows.h>
 
 #include "Game.h"
 #include "Results.h"
@@ -16,6 +17,7 @@ void statistics_info() {
 	cout << "\n";
 }
 
+// menu for statistics features
 void statistics_menu() {
 	int choice = 0;
 	do {
@@ -49,6 +51,7 @@ void main_info() {
 	cout << "\n";
 }
 
+// menu when program starts
 void main_menu() {
 	int choice = 0;
 	do {
@@ -99,7 +102,22 @@ void main_menu() {
 	} while (choice >= 1 && choice <= 3);
 }
 
+// make available coloring in windows console
+void colorModeON() {
+	HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	DWORD dwMode = 0;
+	GetConsoleMode(hOut, &dwMode);
+
+	dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+
+	SetConsoleMode(hOut, dwMode);
+}
+
 int main() {
+	colorModeON();
+
 	main_menu();
 	return 0;
 }
+
+// TODO - Ansi codes don't work on windows (if start from debug or release exe)
