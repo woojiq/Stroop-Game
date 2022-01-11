@@ -47,6 +47,10 @@ const void Results::save() {
 }
 
 const int Results::rating(double tim) {
+	// make double with precision - 4 digits 
+	tim = int(tim * 10000 + 0.5);
+	tim /= 10000.0;
+	
 	int place = 1;
 
 	// go through all the records
