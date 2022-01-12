@@ -46,6 +46,7 @@ public:
 	// output info about last N games
 	static const void showLastN(int N);
 
+	// Precision of variable timeSec
 	static const int Precision = 4;
 
 private:
