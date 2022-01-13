@@ -24,6 +24,11 @@ To write this game, I used the c++ programming language with its built-in librar
 4. Click Stroop.exe and play.
 
 
+## System Requirements
+
+* OS: Windows 10 or newer (didn't test on others OS)
+
+
 ## How to Play
 
 To understand how to play, press **2** - _How to Play_ in the game menu.
@@ -41,7 +46,7 @@ To understand how to play, press **2** - _How to Play_ in the game menu.
 
 Для написання цієї гри було використано мову програмування с++ з її вбудованими бібліотеками, жодних сторонніх бібліотек. Для збереження результатів було використано текстові файли.
 
-**Майбутнє** зробити базу даних не локальну, щоб програма могла порівнювати результати з успіхами всіх учасників.
+**Майбутнє** зробити базу даних не локальну, щоб створити таблицю лідерів.
 
 
 ## Як завантажити гру
@@ -49,6 +54,11 @@ To understand how to play, press **2** - _How to Play_ in the game menu.
 2. Обираємо останню версію та завантажуємо архів 'StroopDownload.zip'.
 3. Переміщяємо архів в зручну папку та розархівовуємо.
 4. Запускаємо 'Stroop.exe' та граємо.
+
+## Системні вимоги
+
+* ОС: Windows 10 чи новішої версії (не тестував на інших ОС)
+
 
 ## Як грати
 Щоб зрозуміти, як грати, у меню програми натисніть **2** - _How to Play_.
