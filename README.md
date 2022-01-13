@@ -19,10 +19,9 @@ To write this game, I used the c++ programming language with its built-in librar
 ## How to Install and Run
 
 1. Go to the 'Release' tab (located to the right of README and under About).
-2. Select the latest version and download the 'Setup' archive.
-3. Unzip the archive and run 'setup.exe'.
-4. Follow the instructions that we are asked in installer.
-5. Click Stroop.exe and play.
+2. Select the latest version and download the 'Stroop.zip'.
+3. Move to a convenient folder and unzip.
+4. Click Stroop.exe and play.
 
 
 ## How to Play
@@ -47,10 +46,9 @@ To understand how to play, press **2** - _How to Play_ in the game menu.
 
 ## Як завантажити гру
 1. Заходимо у вкладку 'Release' (що знаходиться справа від README та під About).
-2. Обираємо останню версію та завантажуємо архів 'Setup'.
-3. Розпаковуємо архів та запускаємо 'setup.exe'.
-4. Виконуємо інструкції, що у нас просять в установнику.
-5. Файл з розширенням .exe (Stroop.exe) - гра (натискаємо і граємо).
+2. Обираємо останню версію та завантажуємо архів 'Stroop.zip'.
+3. Переміщяємо архів в зручну папку та розархівовуємо.
+4. Запускаємо 'Stroop.exe' та граємо.
 
 ## Як грати
 Щоб зрозуміти, як грати, у меню програми натисніть **2** - _How to Play_.
