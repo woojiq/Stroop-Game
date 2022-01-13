@@ -36,6 +36,7 @@ const int ConsoleFeatures::cinInt(std::string message) {
 
 const char ConsoleFeatures::getchChar(std::string message) {
 	std::cout << message;
+	// with _getch the user no longer needs to press 'Enter'
 	int val = _getch();
 	std::cout << char(val);
 

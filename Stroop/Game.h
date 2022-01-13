@@ -27,7 +27,7 @@ public:
 	static const void howtoplay();
 
 	/// <summary>
-	/// Start the game
+	/// Starts the game
 	/// </summary>
 	void start();
 

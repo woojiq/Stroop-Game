@@ -21,14 +21,14 @@ public:
 	static const void pauseANDclear();
 
 	/// <summary>
-	/// read int until it's really int (if char -> read one more time)
+	/// reads int until it's really int (if char -> read one more time)
 	/// </summary>
 	/// <param name="message">message to output before reading</param>
 	/// <returns>read int</returns>
 	static const int cinInt(std::string message);
 
 	/// <summary>
-	/// read one char using method _getch()
+	/// reads one char using method _getch()
 	/// </summary>
 	/// <param name="message">message to output before reading</param>
 	/// <returns>one char</returns>

@@ -29,6 +29,7 @@ Results::Results(std::string data) {
 	std::smatch find;
 	std::regex_search(data, find, record);
 
+	// parse data
 	timeSec = stod(find.str(1));
 	day = stoi(find.str(2));
 	month = stoi(find.str(3));

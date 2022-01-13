@@ -54,7 +54,6 @@ const bool Game::tryToGuess(const char correct) {
 		char attempt = ConsoleFeatures::getchChar("Your Answer: ");
 		if (attempt == correct) return 1;
 	}
-
 	return 0;
 }
 

@@ -125,7 +125,6 @@ void colorModeON() {
 
 int main() {
 	colorModeON();
-
 	main_menu();
 	return 0;
 }

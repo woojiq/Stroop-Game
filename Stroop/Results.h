@@ -11,8 +11,6 @@
 #include <ctime>
 // regex_search
 #include <regex>
-// fprintf
-#include <cstdio>
 #include <string>
 #include <iostream>
 
