@@ -51,7 +51,7 @@ const int Results::rating(double tim) {
 	// make double with Precision digits (10^4 = 10000)
 	tim = int(tim * 10000 + 0.5);
 	tim /= 10000.0;
-
+	
 	int place = 1;
 
 	// go through all the records
@@ -88,7 +88,7 @@ const void Results::showBest() {
 	double bestT = 0.0;
 	std::string bestS;
 	std::string curS;
-
+	
 	while (getline(in, curS)) {
 		double curT = getTime(curS);
 		if (!bestT || curT < bestT) {

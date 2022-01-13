@@ -9,6 +9,7 @@
 #include <time.h>
 // rand
 #include <stdlib.h>
+
 #include "ConsoleFeatures.h"
 #include "Results.h"
 
@@ -71,6 +72,9 @@ private:
 	// codes to write color text in the console. codes[i] matches colors_name[i]
 	// codes[num_of_colors] - to end the output of multicolored text
 	static const std::string codes[num_of_colors + 1];
+
+	static const std::string codes[num_of_colors+1];
+
 };
 
 #endif

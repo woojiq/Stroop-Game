@@ -81,7 +81,7 @@ void Game::start() {
 		// time that user spent to guess the color
 		score += double(end - begin) / double(CLOCKS_PER_SEC);
 
-		if (!right || double(end - begin) / double(CLOCKS_PER_SEC) > 100.0) {
+		if (!right || double(end-begin)/double(CLOCKS_PER_SEC) > 100.0) {
 			std::cout << "You're so bad. Relax and then try again!\n";
 			ConsoleFeatures::pauseANDclear();
 			// score == 0.0 means that game result isn't valid
