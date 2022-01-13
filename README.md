@@ -19,7 +19,7 @@ To write this game, I used the c++ programming language with its built-in librar
 ## How to Install and Run
 
 1. Go to the 'Release' tab (located to the right of README and under About).
-2. Select the latest version and download the 'Stroop.zip'.
+2. Select the latest version and download the 'StroopDownload.zip'.
 3. Move to a convenient folder and unzip.
 4. Click Stroop.exe and play.
 
@@ -46,7 +46,7 @@ To understand how to play, press **2** - _How to Play_ in the game menu.
 
 ## Як завантажити гру
 1. Заходимо у вкладку 'Release' (що знаходиться справа від README та під About).
-2. Обираємо останню версію та завантажуємо архів 'Stroop.zip'.
+2. Обираємо останню версію та завантажуємо архів 'StroopDownload.zip'.
 3. Переміщяємо архів в зручну папку та розархівовуємо.
 4. Запускаємо 'Stroop.exe' та граємо.
 
