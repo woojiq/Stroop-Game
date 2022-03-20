@@ -1,6 +1,7 @@
-> [ENG](https://github.com/woojiq/Stroop-Game/tree/readme-beta#engstroop---train-reaction-and-play-at-one-time)
+> [ENG](https://github.com/woojiq/Stroop-Game#engstroop---train-reaction-and-play-at-one-time)
 
-> [УКР](https://github.com/woojiq/Stroop-Game/tree/readme-beta#ukrstroop---%D1%82%D1%80%D0%B5%D0%BD%D1%83%D0%B9-%D1%80%D0%B5%D0%B0%D0%BA%D1%86%D1%96%D1%8E-%D1%82%D0%B0-%D0%B3%D1%80%D0%B0%D0%B9-%D0%BE%D0%B4%D0%BD%D0%BE%D1%87%D0%B0%D1%81%D0%BD%D0%BE)
+> [УКР](https://github.com/woojiq/Stroop-Game#ukrstroop---%D1%82%D1%80%D0%B5%D0%BD%D1%83%D0%B9-%D1%80%D0%B5%D0%B0%D0%BA%D1%86%D1%96%D1%8E-%D1%82%D0%B0-%D0%B3%D1%80%D0%B0%D0%B9-%D0%BE%D0%B4%D0%BD%D0%BE%D1%87%D0%B0%D1%81%D0%BD%D0%BE)
+> 
 # (ENG)Stroop - Train reaction and play at one time
 
 ## Desctiption
